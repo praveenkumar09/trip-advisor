@@ -9,16 +9,16 @@ import org.springframework.web.client.RestClient;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class AccommodationServiceImpl implements AccommodationServiceClient {
+public class AccommodationServiceClientImpl implements AccommodationServiceClient {
 
-    private final RestClient restClient;
+    private final RestClient client;
 
-    @Override
     public List<Accommodation> getAccommodations(String airportCode) {
-        return this.restClient.get()
-                .uri("{airportCode}",airportCode)
+        return this.client.get()
+                .uri("{airportCode}", airportCode)
                 .retrieve()
-                .body(new ParameterizedTypeReference<>() {
+                .body(new ParameterizedTypeReference<List<Accommodation>>() {
                 });
     }
+
 }

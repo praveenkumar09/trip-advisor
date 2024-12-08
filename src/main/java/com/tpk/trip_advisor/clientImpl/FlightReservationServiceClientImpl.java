@@ -6,18 +6,16 @@ import com.tpk.trip_advisor.dto.FlightReservationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.client.RestClient;
 
-
 @RequiredArgsConstructor
-public class FlightReservationServiceImpl implements FlightReservationServiceClient {
+public class FlightReservationServiceClientImpl implements FlightReservationServiceClient {
 
-    private final RestClient restClient;
+    private final RestClient client;
 
-
-    @Override
-    public FlightReservationResponse getFlightReservation(FlightReservationRequest flightReservationRequest) {
-        return this.restClient.post()
-                .body(flightReservationRequest)
+    public FlightReservationResponse reserve(FlightReservationRequest request) {
+        return this.client.post()
+                .body(request)
                 .retrieve()
                 .body(FlightReservationResponse.class);
     }
+
 }

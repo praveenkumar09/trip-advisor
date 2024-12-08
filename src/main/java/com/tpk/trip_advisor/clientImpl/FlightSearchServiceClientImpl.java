@@ -8,18 +8,17 @@ import org.springframework.web.client.RestClient;
 
 import java.util.List;
 
-
 @RequiredArgsConstructor
-public class FlightSearchServiceImpl implements FlightSearchServiceClient {
+public class FlightSearchServiceClientImpl implements FlightSearchServiceClient {
 
-    private final RestClient restClient;
+    private final RestClient client;
 
-    @Override
-    public List<Flight> getFlights(String departure, String arrival) {
-        return this.restClient.get()
-                .uri("/{departure}/{arrival}",departure,arrival)
+    public List<Flight> getFlights(String departure, String arrival){
+        return this.client.get()
+                .uri("/{departure}/{arrival}", departure, arrival)
                 .retrieve()
-                .body(new ParameterizedTypeReference<>() {
+                .body(new ParameterizedTypeReference<List<Flight>>() {
                 });
     }
+
 }

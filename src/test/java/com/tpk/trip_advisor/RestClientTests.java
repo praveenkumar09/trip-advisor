@@ -1,5 +1,9 @@
 package com.tpk.trip_advisor;
 
+import com.tpk.trip_advisor.dto.Accommodation;
+import com.tpk.trip_advisor.dto.FlightReservationRequest;
+import com.tpk.trip_advisor.dto.FlightReservationResponse;
+import com.tpk.trip_advisor.dto.Weather;
 import com.tpk.trip_advisor.service.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
