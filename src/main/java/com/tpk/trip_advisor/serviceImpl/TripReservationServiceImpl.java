@@ -28,7 +28,7 @@ public class TripReservationServiceImpl implements TripReservationService {
 
     @Override
     public List<Flight> getFlights(String departure, String arrival) {
-        return null;
+        return flightSearchServiceClient.getFlights(departure, arrival);
     }
 
     @Override
