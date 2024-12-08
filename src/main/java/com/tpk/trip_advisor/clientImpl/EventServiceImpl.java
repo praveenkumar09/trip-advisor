@@ -1,7 +1,7 @@
-package com.tpk.trip_advisor.serviceImpl;
+package com.tpk.trip_advisor.clientImpl;
 
+import com.tpk.trip_advisor.client.EventServiceClient;
 import com.tpk.trip_advisor.dto.Event;
-import com.tpk.trip_advisor.service.EventServiceClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.client.RestClient;

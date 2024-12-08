@@ -1,7 +1,7 @@
-package com.tpk.trip_advisor.serviceImpl;
+package com.tpk.trip_advisor.clientImpl;
 
+import com.tpk.trip_advisor.client.WeatherServiceClient;
 import com.tpk.trip_advisor.dto.Weather;
-import com.tpk.trip_advisor.service.WeatherServiceClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.client.RestClient;
 

@@ -1,7 +1,7 @@
-package com.tpk.trip_advisor.serviceImpl;
+package com.tpk.trip_advisor.clientImpl;
 
+import com.tpk.trip_advisor.client.LocalRecommendationServiceClient;
 import com.tpk.trip_advisor.dto.LocalRecommendations;
-import com.tpk.trip_advisor.service.LocalRecommendationServiceClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.client.RestClient;
 
