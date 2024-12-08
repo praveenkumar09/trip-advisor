@@ -7,15 +7,15 @@ import org.springframework.web.client.RestClient;
 
 
 @RequiredArgsConstructor
-public class LocalRecommendationServiceImpl implements LocalRecommendationServiceClient {
+public class LocalRecommendationServiceClientImpl implements LocalRecommendationServiceClient {
 
     private final RestClient restClient;
 
-    @Override
-    public LocalRecommendations getLocalRecommendations(String airportCode) {
+    public LocalRecommendations getRecommendations(String airportCode) {
         return this.restClient.get()
-                .uri("{airportCode}",airportCode)
+                .uri("{airportCode}", airportCode)
                 .retrieve()
                 .body(LocalRecommendations.class);
     }
+
 }

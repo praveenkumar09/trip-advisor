@@ -6,16 +6,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.client.RestClient;
 
 @RequiredArgsConstructor
-public class WeatherServiceImpl implements WeatherServiceClient {
+public class WeatherServiceClientImpl implements WeatherServiceClient {
 
     private final RestClient restClient;
 
-
-    @Override
     public Weather getWeather(String airportCode) {
         return this.restClient.get()
-                .uri("{airportCode}",airportCode)
+                .uri("{airportCode}", airportCode)
                 .retrieve()
                 .body(Weather.class);
     }
+
 }
