@@ -14,7 +14,7 @@ public class FlightReservationServiceImpl implements FlightReservationServiceCli
 
 
     @Override
-    public FlightReservationResponse getFlightReservation(FlightReservationRequest flightReservationRequest) {
+    public FlightReservationResponse reserve(FlightReservationRequest flightReservationRequest) {
         return this.restClient.post()
                 .body(flightReservationRequest)
                 .retrieve()

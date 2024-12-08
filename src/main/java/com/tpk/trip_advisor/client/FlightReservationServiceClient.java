@@ -5,5 +5,5 @@ import com.tpk.trip_advisor.dto.FlightReservationResponse;
 
 public interface FlightReservationServiceClient {
 
-    public FlightReservationResponse getFlightReservation(FlightReservationRequest flightReservationRequest);
+    public FlightReservationResponse reserve(FlightReservationRequest flightReservationRequest);
 }
