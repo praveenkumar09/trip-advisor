@@ -18,6 +18,9 @@ public class ServiceClientsConfig {
 
     private static final Logger log = LoggerFactory.getLogger(ServiceClientsConfig.class);
 
+    @Value("${spring.threads.virtual.enabled}")
+    private boolean isVirtualThreadEnabled;
+
     @Bean
     public AccommodationServiceClient accommodationServiceClient(@Value("${accommodation.service.url}") String baseUrl){
         return new AccommodationServiceClientImpl(buildRestClient(baseUrl));
@@ -55,8 +58,12 @@ public class ServiceClientsConfig {
 
     private RestClient buildRestClient(String baseUrl){
         log.info("base url: {}", baseUrl);
-        return RestClient.builder()
-                .baseUrl(baseUrl)
-                .build();
+        RestClient.Builder builder = RestClient.builder()
+                .baseUrl(baseUrl);
+        if(isVirtualThreadEnabled) {
+            builder.requestFactory(new JdkClientHttpRequestFactory(HttpClient.newBuilder().executor(Executors.newVirtualThreadPerTaskExecutor()).build()))
+                    .build();
+        }
+        return builder.build();
     }
 }
